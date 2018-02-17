@@ -1,5 +1,5 @@
-var express = require('express'); /*importing software packages*/ 
-var morgan = require('morgan');  /*importing software packages*/ 
+var express = require('express'); /*importing software packages---- creates web server and handles http connection*/ 
+var morgan = require('morgan');  /*importing software packages--- outputs log for server */ 
 var path = require('path');  /*importing software packages*/ 
 
 var app = express();
@@ -7,15 +7,15 @@ app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-});
+}); //picks up the file UI 
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
-});
+}); //picks up the css file 
 
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
+}); //picks up the img file
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
