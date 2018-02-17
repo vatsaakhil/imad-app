@@ -19,13 +19,13 @@ app.get('/ui/madi.png', function (req, res) {
 
 app.get('/article-one', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
-}); //test cmd
+}); //gets article1 file
 app.get('/article-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-}); //test cmd
+}); //gets article2 file
 app.get('/article-three', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-}); //test cmd
+}); //gets article3 file
 
 
 
