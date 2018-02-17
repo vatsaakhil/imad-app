@@ -1,6 +1,6 @@
-var express = require('express /*importing software packages*/ 
-var morgan = require('morgan');
-var path = require('path');
+var express = require('express'); /*importing software packages*/ 
+var morgan = require('morgan');  /*importing software packages*/ 
+var path = require('path');  /*importing software packages*/ 
 
 var app = express();
 app.use(morgan('combined'));
