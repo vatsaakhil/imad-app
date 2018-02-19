@@ -5,6 +5,55 @@ var path = require('path');  /*importing software packages*/
 var app = express();
 app.use(morgan('combined'));
 
+var articleone = {
+    
+    title: 'Article One | Akhil Vatsa',
+    heading:'Article One',
+    date:'19 Feb 2018',
+    content: ` <p> This is the content for the first article Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+            
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p>
+              
+          <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum </p>
+        `
+    
+};
+function createtemp(data){
+    var title=data.title;
+    var date=data.date;
+    var content=data.content;
+    var heading=data.heading;
+
+var htmltemp =
+`<html lang=en>
+    <head>
+        <title> ${title}
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="ui/style.css" rel="stylesheet">
+    </head>
+    <body>
+   <div class="container">     
+        <div>
+            <a href="/"  target="_blank">Home</a>  <a href="/article-two"  target="_blank">Article Two</a>  <a href="/article-three" target="_blank">Article Three</a>
+        </div>
+    <hr> <!--visible line break-->
+    <h3>${heading}</h3>
+        <div>
+            ${date}
+        </div>
+        <div>
+           ${content}
+        </div>
+        </div>
+    </body>
+    
+</html>`
+
+
+;
+return htmltemp;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 }); //picks up the file UI 
@@ -18,7 +67,7 @@ app.get('/ui/madi.png', function (req, res) {
 }); //picks up the img file
 
 app.get('/article-one', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
+  res.send(createtemp(articleone));
 }); //gets article1 file
 app.get('/article-two', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
