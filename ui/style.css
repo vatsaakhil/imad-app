@@ -21,7 +21,7 @@ body {
 }
 
  .container{
-                
+                width:76%;
                 min-width: 75%;
                 margin: 0 auto;
                 color:grey;
