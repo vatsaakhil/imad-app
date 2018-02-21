@@ -52,7 +52,7 @@ submit.onclick=function(){
             }
         }
     };
-request.open('GET','http://vatsaakhil.imad.hasura-app.io/submit-name='+name,true);
+request.open('GET','http://vatsaakhil.imad.hasura-app.io/submit-name?='+name,true);
 request.send(null);
   
 }
