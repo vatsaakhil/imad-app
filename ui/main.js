@@ -21,6 +21,6 @@ button.onclick = function() {
         }
     };
 
-request.open('GET','http://shivendra12091999.imad.hasura-app.io/counter',true);
+request.open('GET','http://vatsaakhil.imad.hasura-app.io/counter',true);
 request.send(null);
 };
