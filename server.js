@@ -86,6 +86,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 }); //picks up the file UI 
 
+var counter=0;
+app.get('/counter', function (req, res) {
+    counter++;
+  res.send(path.join(counter.toString()));
+}); //picks up th
+
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
 }); //picks up the css file 
