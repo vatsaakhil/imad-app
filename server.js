@@ -107,7 +107,12 @@ app.get('/:articlename', function (req, res) {
   res.send(createtemp(articles[articlename]));
 }); //gets article1 file
 
-
+app.get('/submit-name/:name', function (req, res) {
+    var name=req.params.name; //get the name from request
+    names.push(name);
+   
+  res.send(JSON.stringyfy(names));  //JSON turns obj to strings yay!
+}); 
 
 
 
