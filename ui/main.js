@@ -1,6 +1,6 @@
 //counter
 var button=document.getElementById('counter');
-var counter=0;
+
 button.onclick=function(){
      var request=new XMLHttpRequest();   //creates a request to counter endpoint
     
@@ -20,6 +20,6 @@ if (httpRequest.readyState === XMLHttpRequest.DONE) {
  
  
  //make a request
- request.open('GET',"http://vatsaakhil.imad.hasura-app.io/counter",true);
+ request.open('GET','http://vatsaakhil.imad.hasura-app.io/counter',true);
  request.send(null);
 };
