@@ -109,9 +109,9 @@ app.get('/:articlename', function (req, res) {
 
 app.get('/submit-name/:name', function (req, res) {
     var name=req.params.name; //get the name from request
-    name.push(name);
+    names.push(name);
    
-  res.send(JSON.stringyfy(name));  //JSON turns obj to strings yay!
+  res.send(JSON.stringyfy(names));  // //JSON turns obj to strings yay!
 }); 
 
 
