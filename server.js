@@ -106,7 +106,7 @@ app.get('/:articlename', function (req, res) {
     var articlename=req.params.articlename;
   res.send(createtemp(articles[articlename]));
 }); //gets article1 file
-
+var names=[];
 app.get('/submit-name/:name', function (req, res) {
     var name=req.params.name; //get the name from request
     names.push(name);
