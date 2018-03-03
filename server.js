@@ -115,8 +115,18 @@ app.get('/:articlename', function (req, res) {
   res.send(createtemp(articles[articlename]));
 }); //gets article1 file
 
-
-
+var Pool=require('pg').Pool;
+var config={
+    user: 'vatsaakhil',
+    database:'vatsaakhil',
+    host:'db.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
+};
+var pool=new Pool(config);
+app.get('/test-db', function(req,res){
+    pool.query('SELECT * FROM test', function)
+});
 
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
