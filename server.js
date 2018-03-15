@@ -56,39 +56,30 @@ var articles={
     
 }
 };
-function createTemplate(data){
-    var title=data.title;
-    var date=data.date;
-    var content=data.content;
-    var heading=data.heading;
-    var htmlTemplate =
-`<html lang=en>
+function CreateTemplate(data){
+var title=data.title;
+var date=data.date;
+var heading=data.heading;
+var content=data.content;
+var htmlTemplate=`
+      <html>
     <head>
-        <title> ${title}
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="ui/style.css" rel="stylesheet">
+        <title>${title}</title>
+        
+        
     </head>
     <body>
-   <div class="container">     
-        <div>
-            <a href="/"  target="_blank">Home</a>  <a href="/article-two"  target="_blank">Article Two</a>  <a href="/article-three" target="_blank">Article Three</a>
-        </div>
-    <hr> <!--visible line break-->
-    <h3>${heading}</h3>
-        <div>
-            ${date}
-        </div>
-        <div>
-           ${content}
-        </div>
-        </div>
+        <div class="container">
+            <div><h2>${heading}</h2></div>
+            <div>${date}</div>
+            <div>${content}</div>
+        
+        
     </body>
     
-</html>`
+</html>
 
-
-;
+`;
 return htmlTemplate;
 }
 app.get('/', function (req, res) {
