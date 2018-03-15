@@ -102,6 +102,17 @@ app.get('/test-db',function(req,res){
     });
     
 });
+app.get('/register.html',function(req,res){ //First way to get a response from a server
+   res.sendFile(path.join(__dirname, 'ui', 'register.html')); 
+});
+
+app.get('/article-two',function(req,res){//Second way to get a response from the server
+   res.send('This is second way to get our response from server');
+});
+
+app.get('/article-one',function(req,res){//Third way to deploy page on web server
+   res.send(CreateTemplate(ArticleOne));
+});
 
 
 
