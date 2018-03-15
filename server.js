@@ -122,10 +122,22 @@ app.get('/submit-name/', function (req, res) {   //URL submit-name?name-xxx
 
 
 
-app.get('/:articlename', function (req, res) {
+app.get('/article/:articlename', function (req, res) {
     var articlename=req.params.articlename;
-  res.send(CreateTemplate(articles[articlename]));
-}); //gets article1 file
+    
+pool.query("SELECT * FROM article WHERE title=" +req.params.articleName, function(err,result){
+    if(err) {
+        res.status(500).send(err.toString());
+    } else {
+        if(result.rows.length===0){
+            res.status(404).send('Article Not Found');
+        } else {
+            var articleData= result.rows[0];
+            res.send(createTemplate(articleData));
+        }
+    }
+});
+}); //gets article file
 
 
 
