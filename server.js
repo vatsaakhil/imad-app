@@ -2,6 +2,16 @@ var express = require('express'); /*importing software packages---- creates web 
 var morgan = require('morgan');  /*importing software packages--- outputs log for server */ 
 var path = require('path');  /*importing software packages*/ 
 
+var Pool=require('pg').Pool;
+
+var config={
+    user: 'vatsaakhil',
+    database:'vatsaakhil',
+    host:'db.imad.hasura-app.io',
+    port: '5432',
+    password: process.env.DB_PASSWORD
+};
+
 var app = express();
 app.use(morgan('combined'));
 
@@ -51,8 +61,7 @@ function createTemplate(data){
     var date=data.date;
     var content=data.content;
     var heading=data.heading;
-
-var htmltemp =
+    var htmlTemplate =
 `<html lang=en>
     <head>
         <title> ${title}
@@ -80,7 +89,7 @@ var htmltemp =
 
 
 ;
-return htmltemp;
+return htmlTemplate;
 }
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -115,14 +124,7 @@ app.get('/:articlename', function (req, res) {
   res.send(createTemplate(articles[articlename]));
 }); //gets article1 file
 
-var Pool=require('pg').Pool;
-var config={
-    user: 'vatsaakhil',
-    database:'vatsaakhil',
-    host:'db.imad.hasura-app.io',
-    port: '5432',
-    password: process.env.DB_PASSWORD
-};
+
 var pool=new Pool(config);
 app.get('/test-db', function(req,res){
     pool.query('SELECT * FROM test', function(err,result){
