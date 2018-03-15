@@ -112,7 +112,7 @@ app.get('/ui/madi.png', function (req, res) {
 
 app.get('/:articlename', function (req, res) {
     var articlename=req.params.articlename;
-  res.send(createTempelate(articles[articlename]));
+  res.send(createTemplate(articles[articlename]));
 }); //gets article1 file
 
 var Pool=require('pg').Pool;
