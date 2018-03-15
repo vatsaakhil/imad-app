@@ -46,7 +46,7 @@ var articles={
     
 }
 };
-function createtemp(data){
+function createTemplate(data){
     var title=data.title;
     var date=data.date;
     var content=data.content;
