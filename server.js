@@ -7,32 +7,14 @@ var config={
     user:'vatsaakhil',
     database:'vatsaakhil',
     host:'db.imad.hasura-app.io',
-    port:'80',
+    port:'5432',
     password:process.env.DB_PASSWORD
     
 };
 var app = express();
 app.use(morgan('combined'));
 
-var articles={
-    'ArticleFour':{
-    title:'Welcome Bhavana Singh',
-    heading:'ArticleFour4',
-    date:'February 28, 2018',
-    content:`<p>First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.</p><p>First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.</p></div>
-            <div>Written By~</div>
-            <strong>Bhavana Singh</strong>`
-            },
-    'ArticleThree':{
-    title:' Nishtha Pandey',
-    heading:'ArticleThree3',
-    date:'February 25, 2018',
-    content:`<p>First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.</p><p>First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.First way to depoly my page on server.</p></div>
-            <div>Written By~</div>
-            <strong>Nishtha Pandey</strong>
-            `}     
-    
-};
+
 var ArticleOne={
     title:'Welcome Bhavana Singh',
     heading:'ArticleOne1',
