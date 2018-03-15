@@ -123,7 +123,7 @@ app.get('/submit-name/', function (req, res) {   //URL submit-name?name-xxx
 
 
 app.get('/articles/:articlename', function (req, res) {
-    var articlename=req.params.articlename;
+    //var articlename=req.params.articlename;
     
 pool.query("SELECT * FROM article WHERE title=' " +req.params.articlename + " ' ", function(err,result){
     if(err) {
