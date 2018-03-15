@@ -102,17 +102,6 @@ app.get('/test-db',function(req,res){
     });
     
 });
-app.get('/register.html',function(req,res){ //First way to get a response from a server
-   res.sendFile(path.join(__dirname, 'ui', 'register.html')); 
-});
-
-app.get('/article-two',function(req,res){//Second way to get a response from the server
-   res.send('This is second way to get our response from server');
-});
-
-app.get('/article-one',function(req,res){//Third way to deploy page on web server
-   res.send(CreateTemplate(ArticleOne));
-});
 
 
 
@@ -131,12 +120,12 @@ app.get('/submit-name/', function (req, res) {   //URL submit-name?name-xxx
     //console.log("post received: %s", name);
 //});
 
-app.get('article/:articleName',function(req,res){
-    var articleName = req.params.articleName;
-   res.send(CreateTemplate(articles[articleName]));
-});
 
 
+app.get('/:articlename', function (req, res) {
+    var articlename=req.params.articlename;
+  res.send(CreateTemplate(articles[articlename]));
+}); //gets article1 file
 
 
 
