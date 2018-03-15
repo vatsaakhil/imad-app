@@ -102,27 +102,18 @@ app.get('/test-db',function(req,res){
     });
     
 });
-app.get('/register.html',function(req,res){ //First way to get a response from a server
-   res.sendFile(path.join(__dirname, 'ui', 'register.html')); 
-});
-
-app.get('/ArticleTwo.html',function(req,res){//Second way to get a response from the server
-   res.send('This is second way to get our response from server');
-});
-
-app.get('/ArticleOne.html',function(req,res){//Third way to deploy page on web server
-   res.send(CreateTemplate(ArticleOne));
-});
 
 
 
 var names=[];
-app.get('/submit-name',function(req,res){
-    var name=req.query.name;
+app.get('/submit-name/', function (req, res) {   //URL submit-name?name-xxx
+    var name=req.query.name; //get the name from request
     names.push(name);
-    res.send(JSON.stringify(names));
-    
-});
+   
+  res.send(JSON.stringify(names));  // //JSON turns obj to strings yay!
+}); 
+
+
 
 //app.post('/submit-name', function(req, res) {
   //  var name = req.query.name;
@@ -138,13 +129,16 @@ app.get('article/:articleName',function(req,res){
 
 
 
+app.get('/ui/style.css', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+}); //picks up the css file 
 app.get('/ui/main.js', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'main.js'));
-});
-
+}); //picks up the js script
 app.get('/ui/madi.png', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
-});
+}); //picks up the img file
+
 
 
 // Do not change port, otherwise your app won't run on IMAD servers
